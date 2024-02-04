@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
+@import '../../assets/styles/_config.scss'; 
+@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+
+.root {
+  font-family: 'Protest Riot', sans-serif;
+}
+
+.root_app {
+  max-width: 38rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.root_app > * {
+  flex: 1 1 auto;
+  background-color: $color-neutral-darker;
+}

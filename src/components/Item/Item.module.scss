@@ -1,0 +1,89 @@
+@import '../../assets/styles/_config.scss'; 
+
+.item {
+  color: $color-neutral-dark;
+  border-top: 1px solid $color-neutral-light;
+  display: flex;
+  background-color: $color-neutral-darker;
+  color: white;
+}
+
+.item_data {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0.75rem;
+  flex: 1;
+  flex-direction: column; /* Added */
+}
+
+.item_info {
+  overflow: hidden;
+  max-height: 50px;
+  transition: max-height 0.3s ease;
+}
+
+.item_info.expanded {
+  max-height: none;
+}
+
+.item_average,
+.item_heartrate {
+  text-align: right;
+  color: white;
+}
+
+.item_amount {
+  text-align: left;
+  color: white;
+}
+
+.item_timespan, .item_periodStart, .item_periodEnd {
+  text-align: center;
+  grid-column: 1 / -1;
+  color: white;
+}
+
+.item_paymentDate, .item_date {
+  text-align: start;
+  font-weight: bold;
+  color: white;
+}
+
+.item_type {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  grid-column: 1 / -1;
+  color: white;
+}
+
+.item_info {
+  text-align: center;
+  grid-column: 1 / -1;
+  align-self: end;
+  overflow: auto;
+  margin-top: 20px;
+}
+
+.scrollable-content {
+  overflow: hidden;
+}
+
+.item_edit {
+  max-width: 2rem;
+  min-width: 2rem;
+  background-color: $color-neutral-darkest;
+  color: $color-neutral-dark;
+  font-size: 1.75rem;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.item:hover {
+  box-shadow: 0 0 10px $color-neutral-light;
+}
+
+.item:hover .item_edit {
+  display: flex;
+}

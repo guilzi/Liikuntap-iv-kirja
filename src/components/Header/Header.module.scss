@@ -1,0 +1,15 @@
+@import '../../assets/styles/_config.scss'; 
+
+.header {
+    background-color: $color-neutral-darkest;
+    color: $color-neutral-lightest;
+    max-height: 4rem;
+    min-height: 4rem;
+    font-size: 1.75rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}  

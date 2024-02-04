@@ -1,0 +1,64 @@
+@import '../../assets/styles/_config.scss';
+
+.itemform {
+    display: flex;
+    flex-direction: column;
+    color: white;
+  }
+
+.itemform_row {
+    display: flex;
+  }
+
+.itemform_row > div {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    margin: 0.5rem 0.3rem;
+    width: 100%;
+  }
+
+  .itemform input,
+  .itemform select,
+  .itemform textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid $color-neutral;
+      border-radius: 0.3rem;
+      font-size: 1.2rem;
+      outline: none;
+  }
+
+  .itemform textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid $color-neutral;
+    border-radius: 0.3rem;
+    font-size: 1.2rem;
+    outline: none;
+    resize: none;
+    margin-top: 0.5rem;
+}
+
+.itemform label {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+
+.itemforminfo {
+    color: red;
+  }
+
+
+.lisateksti {
+    display: flex;
+    align-items: center;
+  
+    input {
+      margin-right: 5px;
+    }
+    
+    span {
+      font-weight: bold;
+    }
+}
