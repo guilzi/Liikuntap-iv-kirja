@@ -1,8 +1,5 @@
-import { Button } from './Button';
 import Button from '../shared/buttons'
 
-
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
   title: 'shared/Button',
   component: Button,
@@ -21,30 +18,25 @@ export default {
   }
 }
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary = {
-  args: {
-    primary: true,
-    label: 'Button',
-  },
-};
+export const Default = (args) => <Button {...args} />;
 
-export const Secondary = {
-  args: {
-    label: 'Button',
-  },
-};
+export const Primary = (args) => <Button {...args} />;
 
-export const Large = {
-  args: {
-    size: 'large',
-    label: 'Button',
-  },
-};
+Primary.args = {
+  primary: true,
+  children: 'Primary button',
+}
 
-export const Small = {
-  args: {
-    size: 'small',
-    label: 'Button',
-  },
-};
+export const Secondary = (args) => <Button {...args} />;
+
+Secondary.args = {
+  secondary: true,
+  children: 'Secondary button',
+}
+
+export const Disabled = (args) => <Button {...args} />;
+
+Disabled.args = {
+  disabled: true,
+  children: 'Disabled button',
+}
