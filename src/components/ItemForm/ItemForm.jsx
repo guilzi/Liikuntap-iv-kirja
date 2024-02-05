@@ -1,21 +1,50 @@
-import styles from './ItemForm.module.scss'
-import useForm from '../../shared/useform/useform'
-import Button from '../../shared/buttons'
-import { useNavigate } from 'react-router-dom'
+import styles from './ItemForm.module.scss';
+import useForm from '../../shared/useform/useform';
+import Button from '../../shared/buttons';
+import { useNavigate } from 'react-router-dom';
 
+/**
+ * @typedef {Object} FormData
+ * @property {string} type - Liikuntatyyppi.
+ * @property {number} amount - Kaloreiden kulutus (kCal).
+ * @property {string} paymentDate - Päivämäärä.
+ * @property {string} periodStart - Aloitusaika.
+ * @property {string} periodEnd - Lopetusaika.
+ * @property {string} info - Lisätietoja.
+ * @property {number} distance - Matkan pituus (km).
+ * @property {number} heartrate - Keskiverto syke (bpm).
+ */
+
+/**
+ * Toiminnallinen komponentti lomakkeen renderöimiseksi.
+ *
+ * @component
+ * @param {Object} props - Komponentin ominaisuudet.
+ * @param {FormData} props.formData - Lomakkeen alustamiseen käytettävät tiedot.
+ * @param {string[]} props.typelist - Lista käytettävissä olevista liikuntatyypeistä.
+ * @param {Function} props.onItemSubmit - Kutsufunktio, kun lomake lähetetään.
+ * @param {Function} [props.onItemDelete] - Valinnainen kutsufunktio, kun kohde poistetaan.
+ * @returns {JSX.Element} JSX-elementti, joka edustaa lomaketta.
+ */
 function ItemForm(props) {
+  const navigate = useNavigate();
 
-const navigate = useNavigate()
+  /**
+   * Käsittelijä lomakkeen lähettämiselle.
+   */
+  const submit = () => {
+    let storedValues = { ...values };
+    storedValues.amount = parseFloat(storedValues.amount);
+    storedValues.id = storedValues.id ? storedValues.id : crypto.randomUUID();
+    props.onItemSubmit(storedValues);
+    navigate(-1);
+  };
 
-const submit = () => {
-  let storedValues = Object.assign({}, values)
-  storedValues.amount = parseFloat(storedValues.amount)
-  storedValues.id = storedValues.id ? storedValues.id : crypto.randomUUID()
-  props.onItemSubmit(storedValues)
-  navigate(-1)
-}
-
-const initialState = props.formData ? props.formData : {
+  /**
+   * Lomakkeen alustustila.
+   * @type {FormData}
+   */
+  const initialState = props.formData ? props.formData : {
     type: "",
     amount: 0,
     paymentDate: "",
@@ -24,20 +53,34 @@ const initialState = props.formData ? props.formData : {
     info: "",
     distance: 0,
     heartrate: 0
-}
+  };
 
-const {values, handleChange, handleSubmit } = useForm(submit, initialState, false)
+  /**
+   * Lomakkeen käsittely käyttäen räätälöityä koukkua.
+   * @type {Object}
+   * @property {FormData} values - Nykyiset lomakkeen arvot.
+   * @property {Function} handleChange - Käsittelijä syötteen muutoksille.
+   * @property {Function} handleSubmit - Käsittelijä lomakkeen lähettämiselle.
+   */
+  const { values, handleChange, handleSubmit } = useForm(submit, initialState, false);
 
-const handleCancel = () => {
-  navigate(-1)
-}
+  /**
+   * Käsittelijä peruuta-painikkeen klikkaukselle.
+   */
+  const handleCancel = () => {
+    navigate(-1);
+  };
 
-const handleDelete = () => {
-  props.onItemDelete(values.id)
-  navigate(-1)
-}
+  /**
+   * Käsittelijä poista-painikkeen klikkaukselle.
+   */
+  const handleDelete = () => {
+    props.onItemDelete(values.id);
+    navigate(-1);
+  };
 
   return (
+        // ... JSX renderöinti ...
     <div>
       <div className={styles.itemforminfo}> *  Merkityt ovat pakollisia täyttää.</div>
       <form onSubmit={handleSubmit}>
