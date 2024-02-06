@@ -53,35 +53,35 @@ function ItemForm(props) {
               <div className={styles.itemform_row}>
                 <div>
                   <label htmlFor='paymentDate'>Päivämäärä*</label>
-                  <input ide='date' name='paymentDate' onChange={handleChange} value={values.paymentDate} />
+                  <input type='date' name='paymentDate' onChange={handleChange} value={values.paymentDate} />
                 </div>
                 <div>
                   <label htmlFor='periodStart'>Aloitus*</label>
-                  <input id='time' name='periodStart' onChange={handleChange} value={values.periodStart} />
+                  <input type='time' name='periodStart' onChange={handleChange} value={values.periodStart} />
                 </div>
                 <div>
                   <label htmlFor='periodEnd'>Lopetus*</label>
-                  <input id='time' name='periodEnd' onChange={handleChange} value={values.periodEnd} />
+                  <input type='time' name='periodEnd' onChange={handleChange} value={values.periodEnd} />
                 </div>
               </div>
               <div className={styles.itemform_row}>
                 <div>
                   <label htmlFor='amount'>Kaloreiden kulutus (kCal)</label>
-                  <input id='number' name='amount' step='1.00' onChange={handleChange} value={values.amount} />
+                  <input type='number' name='amount' step='1.00' onChange={handleChange} value={values.amount} />
                 </div>
                 <div>
                   <label htmlFor='distance'>Matkan pituus (km)</label>
-                  <input id='number' name='distance' step='0.10' onChange={handleChange} value={values.distance} />
+                  <input type='number' name='distance' step='0.10' onChange={handleChange} value={values.distance} />
                 </div>
                 <div>
                   <label htmlFor='heartrate'>Keskiverto syke (bpm)</label>
-                  <input id='number' name='heartrate' step='1.00' onChange={handleChange} value={values.heartrate} />
+                  <input type='number' name='heartrate' step='1.00' onChange={handleChange} value={values.heartrate} />
                 </div>
               </div>
               <div className={styles.itemform_row}>
                 <div>
                   <label htmlFor='info'>Lisätietoja</label>
-                  <textarea id='info' rows='8' onChange={handleChange} value={values.info} />
+                  <textarea type='info' rows='8' onChange={handleChange} value={values.info} />
                 </div>
               </div>
               <div className={styles.itemform_row}>
