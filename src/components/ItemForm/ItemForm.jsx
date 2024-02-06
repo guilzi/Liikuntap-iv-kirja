@@ -47,7 +47,7 @@ function ItemForm(props) {
               <select type='type' onChange={handleChange} value={values.type}>
                 <option value="">(valitse)</option>
                 { props.typelist.map(
-                  type => <option key={type}>{type}</option>
+                  type => <option key={type}>{type}</option> 
                 )}
               </select>
               <div className={styles.itemform_row}>
