@@ -43,12 +43,14 @@ function ItemForm(props) {
         <div className={styles.itemform}>
           <div className={styles.itemform_row}>
             <div>
-              <label htmlFor='type'>Liikuntatyyppi*</label>
-              <select type='type' onChange={handleChange} value={values.type}>
-                <option value="">(valitse)</option>
-                { props.typelist.map(
-                  type => <option key={type}>{type}</option> 
-                )}
+            <label htmlFor='type'>Liikuntatyyppi*</label>
+            <select name='type' onChange={handleChange} value={values.type}>
+            <option value="">(valitse)</option>
+            {props.typelist.map((type) => (
+            <option key={type} value={type}>
+            {type}
+             </option>
+            ))}
               </select>
               <div className={styles.itemform_row}>
                 <div>
@@ -79,10 +81,15 @@ function ItemForm(props) {
                 </div>
               </div>
               <div className={styles.itemform_row}>
-                <div>
-                  <label htmlFor='info'>Lisätietoja</label>
-                  <textarea type='info' rows='8' onChange={handleChange} value={values.info} />
-                </div>
+              <div>
+              <label htmlFor='info'>Lisätietoja</label>
+              <textarea
+                name='info'
+                rows='8'
+                onChange={handleChange}
+                value={values.info}
+                />
+              </div>
               </div>
               <div className={styles.itemform_row}>
                 <div>
