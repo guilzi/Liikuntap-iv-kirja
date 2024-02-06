@@ -8,10 +8,13 @@
     "build": "vite build",
     "test": "vitest",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "clsx": "^2.0.0",
+    "markdown-to-jsx": "^7.4.1",
     "randomcolor": "^0.6.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -44,6 +47,8 @@
     "sass": "^1.66.1",
     "storybook": "^7.6.12",
     "vite": "^4.4.5",
-    "vitest": "^0.34.6"
+    "vite-plugin-pwa": "^0.16.7",
+    "vitest": "^0.34.6",
+    "workbox-window": "^7.0.0"
   }
 }
